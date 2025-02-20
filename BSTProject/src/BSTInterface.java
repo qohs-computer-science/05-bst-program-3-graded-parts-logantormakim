@@ -3,8 +3,38 @@ public interface BSTInterface
 	public int size();
 	// returns the current number of nodes that are located in the tree
 
-	public boolean isEmpty();
+	public boolean isEmpty() 
 	// returns true if there are no nodes in the tree and false if there is at least one node in the tree
+	{	if (root == null) {
+			return true; 
+		}
+		else {
+			return false;
+		}
+	}
+
+		public void add(Object val) {
+			if(root = null)
+				root = new TreeNode;
+			else if (value <= root.getValue()) 
+			addHelper( Obj value, root.getLeft(), root);
+			else 
+			addHelper(Obj value, root.getRight(), root);
+		}
+
+private void addHelper(object value, TN child, TN parent)
+{
+	if (child == null)
+		if (parent.getLeft() != null)
+			parent.setLC(new TreeNode());
+		else
+			parent.setRC(new TreeNode());
+	else if (child.getValue() <= value.getValue())
+		root = new TreeNode(child, null, null);
+	else
+		root = new TreeNode(child, null, null);
+
+		}
 
 	public void add(Comparable newVal);
 	// Creates a new node to store the value being sent then adds the node to the tree in the correct place (remember all left children are less than or equal to their parent and all right children are greater than their parent).  
