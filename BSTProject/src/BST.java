@@ -35,6 +35,31 @@ public class BST implements BSTInterface
                 addHelper(val, child.getRight(), child);
             }
         }
-        
-        
+        public void printInOrder() // prints the list in order
+        {
+            if (root== null) {
+                System.out.println("In order: ____");
+            }
+            if (root.getLeft()!= null) {
+                inOrderHelper(root.getLeft());
+                System.out.println(root.getValue());
+            }
+            if (root.getRight()!= null) {
+                inOrderHelper(root.getRight());
+            }
+        }
+
+
+
+        //in order helper
+        public void inOrderHelper(TreeNode child) {
+            if(child.getLeft() !=null) {
+                inOrderHelper(child.getLeft());
+            }
+            System.out.println(root.getValue());
+            if(child.getRight() !=null) {
+                inOrderHelper(child.getRight());
+            }
+            return;
+        }
     }   
