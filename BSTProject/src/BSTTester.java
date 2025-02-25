@@ -10,18 +10,19 @@
  public class BSTTester {
    public static void main(String[] args) {
    BST tree = new BST(); 
-   tree.add("j");
-   tree.add("h");
+   tree.add("q");
+   tree.add("u");
+   tree.add("i");
    tree.add("n");
-   tree.add("e");
-   tree.add("d");
    tree.add("c");
-   tree.add("w");
-   tree.add("l");
-   tree.add("k");
-   tree.add("x");
-   tree.add("y");
-   tree.add("z");
-  
+   tree.add("e");
+   tree.add("o");
+   tree.add("r");
+   tree.add("c");
+   tree.add("h");
+   tree.add("a");
+   tree.add("r");
+   tree.add("d");
+   tree.printInOrder();
  }
 }

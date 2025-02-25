@@ -7,46 +7,50 @@ public class BST implements BSTInterface
     public BST () {
         root=null;
     }
-    
+    // add
     public void add(Comparable val) {
-        if(root = null)
+        if(root == null)
 	            root = new TreeNode(val, null,null);
-        else if (val.compareTo(root.getValue())) {
+        else if (val.compareTo(root.getValue()) <= 0) {
 	        addHelper(val, root.getLeft(), root);
         }
         else {
 	        addHelper(val, root.getRight(), root);
         }
     }
+
+        // add helper   
         private void addHelper(Comparable val, TreeNode child, TreeNode parent)
         {
             if (child == null) {
-	            if (parent.getValue().compareTo(val) >=0) {
+	            if (val.compareTo(parent.getValue()) <=0) {
 			            parent.setLeft(new TreeNode(val));
-                }
+                } // end if
 		    else {
 			parent.setRight(new TreeNode(val));
-            }
-            }
-	        else if (val.compareTo(child.getValue()) <0) {
+            } // end else
+            } // end if
+	        else if (val.compareTo(child.getValue()) >=0) {
                 addHelper(val, child.getLeft(), child);
-            }
+            } // end else if
 	        else {
                 addHelper(val, child.getRight(), child);
-            }
-        }
+            } // end else
+        } // end add helper
+
+
         public void printInOrder() // prints the list in order
         {
-            if (root== null) {
+            if (root == null) {
                 System.out.println("In order: ____");
-            }
+            } // end if
             if (root.getLeft()!= null) {
                 inOrderHelper(root.getLeft());
-                System.out.println(root.getValue());
-            }
+            } // end if
+            System.out.println(root.getValue());
             if (root.getRight()!= null) {
                 inOrderHelper(root.getRight());
-            }
+            } // end if
         }
 
 
