@@ -26,11 +26,11 @@ public class BST implements BSTInterface
 	            if (val.compareTo(parent.getValue()) <=0) {
 			            parent.setLeft(new TreeNode(val));
                 } // end if
-		    else {
+                if (val.compareTo(parent.getValue()) >0) {
 			parent.setRight(new TreeNode(val));
-            } // end else
             } // end if
-	        else if (val.compareTo(child.getValue()) >=0) {
+            } // end if
+	         else if (val.compareTo(child.getValue()) <=0) {
                 addHelper(val, child.getLeft(), child);
             } // end else if
 	        else {
@@ -41,6 +41,7 @@ public class BST implements BSTInterface
 
         public void printInOrder() // prints the list in order
         {
+            System.out.println("In order:");
             if (root == null) {
                 System.out.println("In order: ____");
             } // end if
@@ -60,10 +61,65 @@ public class BST implements BSTInterface
             if(child.getLeft() !=null) {
                 inOrderHelper(child.getLeft());
             }
-            System.out.println(root.getValue());
+            System.out.println(child.getValue() + " ");
             if(child.getRight() !=null) {
                 inOrderHelper(child.getRight());
             }
             return;
         }
+
+        public void printPreOrder() // prints in pre order
+        {
+            System.out.println("Pre order:");
+            if (root == null) {
+                System.out.println("Pre order: ____");
+            } // end if
+            System.out.println(root.getValue());
+            if (root.getLeft()!= null) {
+                preOrderHelper(root.getLeft());
+            } // end if
+            if (root.getRight()!= null) {
+                preOrderHelper(root.getRight());
+            } // end if
+        } // end print preorder
+
+        // preorder helper
+        public void preOrderHelper(TreeNode child) {
+            System.out.println(child.getValue() + " ");
+            if(child.getLeft() !=null) {
+                preOrderHelper(child.getLeft());
+            }
+            if(child.getRight() !=null) {
+                preOrderHelper(child.getRight());
+            }
+            return;
+        }
+
+        public void printPostOrder() // prints in post order
+        {
+            System.out.println("Post order:");
+            if (root == null) {
+                System.out.println("Post order: ____");
+            } // end if
+            if (root.getLeft()!= null) {
+                postOrderHelper(root.getLeft());
+            } // end if
+            if (root.getRight()!= null) {
+                postOrderHelper(root.getRight());
+            } // end if
+            System.out.println(root.getValue());
+        } // end printpostorder
+
+        // postorder helper
+        public void postOrderHelper(TreeNode child) {
+            if(child.getLeft() !=null) {
+                postOrderHelper(child.getLeft());
+            }
+            if(child.getRight() !=null) {
+                postOrderHelper(child.getRight());
+            }
+            System.out.println(child.getValue() + " ");
+            return;
+        }
+
     }   
