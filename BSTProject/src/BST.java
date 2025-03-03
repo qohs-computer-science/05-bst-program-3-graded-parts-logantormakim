@@ -149,11 +149,35 @@ public class BST implements BSTInterface
             } // end else if  
             } // end delete
 
-            public void deleteHelper(Comparable val, TreeNode child, TreeNode parent) {
-                if (child.compareTo(parent.getValue()) <= 0) {
-                    if (child.compareTo(val.getValue()) == 0) {
-                        if (root.getLeft()!= null && root.getRight()!= null) 
-                    } // end if
+            public boolean deleteHelper(Comparable val, TreeNode child, TreeNode parent) {
+                if (parent ==null) {
+                    return false;
+                }
+                else if (parent.getValue() == val) {
+                        if (child.getLeft()!= null && child.getRight()!= null) { //2 children
+                            TreeNode temp = child.getLeft();
+                                while (temp.getRight() != null) {
+                                    temp= temp.getRight();
+                                }
+                                temp.setRight(child.getRight());
+                                child.setRight(null);
+                                if(child.getValue().compareTo(parent.getValue())> 0) {
+                                    parent.setRight(child.getLeft());
+                                } // end if
+                                else {
+                                    parent.setLeft(child.getLeft());
+                                } // end else
+                                child=child.getLeft();
+                                return true;
+                        } // end if
+                                else if (child.getRight() != null) { // has right
+                                    if (child.getValue().compareTo(parent.getValue()) >0) {
+                                        parent.setRight(child.getRight());
+                                    }
+                                    else {
+                                        parent.setLeft(child.getRight());
+                                    }
+                                } // end elseif
                 } // end if
-            }
+            } // end delete helper
         } // end  class
