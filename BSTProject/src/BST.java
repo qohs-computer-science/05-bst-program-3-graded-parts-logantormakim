@@ -170,14 +170,42 @@ public class BST implements BSTInterface
                                 child=child.getLeft();
                                 return true;
                         } // end if
+
                                 else if (child.getRight() != null) { // has right
                                     if (child.getValue().compareTo(parent.getValue()) >0) {
                                         parent.setRight(child.getRight());
-                                    }
+                                    } // end if
                                     else {
                                         parent.setLeft(child.getRight());
-                                    }
+                                    } // end else
+                                    parent = parent.getRight();
+                                    return true;
                                 } // end elseif
+
+                                else if (child.getLeft() != null) { // has left
+                                    if (child.getValue().compareTo(parent.getValue()) >0) {
+                                        parent.setRight(child.getRight());
+                                    } // end if
+                                    else {
+                                        parent.setLeft(child.getRight());
+                                    } // end else
+                                    parent = parent.getRight();
+                                    return true;
+                                } // end else if
+                                
+                                else { // 0 children
+                                   parent.setValue(null);
+                                   return true;
+                                } // end else
                 } // end if
+                    else if { (parent.getValue().compareTo(val) > 0) {
+                                deleteHelper(val, child.getLeft(), child)
+                                return true;
+                        }
+                    }
+                    else {
+                        deleteHelper(val, child.getRight(), child)
+                        return true;
+                    }
             } // end delete helper
         } // end  class
