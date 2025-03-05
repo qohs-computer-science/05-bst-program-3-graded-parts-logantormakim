@@ -23,8 +23,10 @@
    tree.add("N");
    tree.add("C");
    tree.add("E");
+   tree.delete("Q");
    tree.printInOrder();
    tree.printPreOrder();
    tree.printPostOrder();
+   
  }
 }
