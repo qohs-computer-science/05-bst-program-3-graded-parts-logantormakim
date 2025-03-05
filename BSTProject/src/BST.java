@@ -218,4 +218,57 @@ public class BST implements BSTInterface
                         return false;
                     }
             } // end delete helper
+
+            // method to check if the binary tree is empty, has no nodes in it
+            public boolean isEmpty() {
+                // if there's no nodes
+                if(root== null) {
+                    return true;
+                } // end if
+                else {
+                    return false;
+                }
+            }//end isEmpty
+
+            //  determine if the object being passed is a current element in the tree if it is, return true, otherwise, return false
+            public boolean find (Comparable val) {
+                if (root.getValue() ==null) {
+                    return false;
+                } // end if
+                else {
+                    if (val.compareTo(root.getValue())== 0) {
+                        return true; 
+                    }// end if
+                    else if (val.compareTo(root.getValue()) <= 0) {
+
+                    } // end else if
+                } // end else
+            } // end find
+
+            public boolean findHelper(TreeNode child, Comparable val) {
+                if(child.getValue() == val) {
+                    return true;
+                } // end if
+                else if (val.compareTo(child.getValue()) <=0) {
+                    if (child.getLeft() != null) {
+                        return findHelper(child.getLeft(), val);
+                    } // end if
+                    else {
+                        return false;
+                    } // end else
+                } // end else if
+                else if (val.compareTo(child.getValue()) > 0) {
+                    if (child.getRight() !=null) {
+                        return findHelper(child.getRight(), val);
+                    } // end if
+                    else {
+                        return false;
+                    } // end else
+                } // end else if
+                else  {
+                    return false;
+                } // end else
+            } // end findHelper
+
+
         } // end  class
