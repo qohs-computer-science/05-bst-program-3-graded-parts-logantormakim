@@ -240,8 +240,24 @@ public class BST implements BSTInterface
                         return true; 
                     }// end if
                     else if (val.compareTo(root.getValue()) <= 0) {
-
+                        if(root.getLeft() != null) {
+                            return findHelper(root.getLeft(), val);
+                        } // end if
+                        else {
+                            return false;
+                        } // end else
                     } // end else if
+                    else if (val.compareTo(root.getValue()) > 0) {
+                        if (root.getRight() !=null) {
+                            return findHelper(root.getRight(), val);
+                        } // end if
+                        else {
+                            return false;
+                        } // end else
+                    } // end elsef if
+                    else {
+                        return false;
+                    }
                 } // end else
             } // end find
 
@@ -270,5 +286,6 @@ public class BST implements BSTInterface
                 } // end else
             } // end findHelper
 
+            // replacer 
 
         } // end  class

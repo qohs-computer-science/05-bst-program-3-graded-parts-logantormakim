@@ -27,6 +27,7 @@
    tree.printInOrder();
    tree.printPreOrder();
    tree.printPostOrder();
-   
+   System.out.println("Is L there?" );
+   System.out.println(tree.find("L"));
  }
 }
