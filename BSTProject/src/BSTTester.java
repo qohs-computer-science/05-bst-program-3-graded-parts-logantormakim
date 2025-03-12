@@ -29,5 +29,9 @@
    tree.printPostOrder();
    System.out.println("Is L there?" );
    System.out.println(tree.find("L"));
+   System.out.println("Is Q there?" );
+   System.out.println(tree.find("Q"));
+   System.out.println("Replacing U with  Z");
+   System.out.println(tree.replace("U", "Z"));
  }
 }
